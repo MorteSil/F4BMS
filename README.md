@@ -7,7 +7,7 @@ This Library is still a Work in Progress.  However, I consider it complete enoug
 
 Please read that again:  This Library is still a Work in Progress.  
 
-I have done a considerable amount of testing with it and tried to implement error handling for as many potential issues or incorrect usages as I could think of during development.  However, it is EXTREMELY important to back up your data prior to doing any kind of modification to the CT or LOD database.  
+I have done a considerable amount of testing with it and tried to implement error handling for as many potential issues or incorrect usages as I could think of during development.  However, it is EXTREMELY important to back up your data prior to doing any kind of modification to the CT or LOD database.  This is a CLASS LIBRARY, not a full implementation, which means it interacts with raw data, and provides very little validation of logical data as it pertains to BMS.  The classes are written to adhere to the file and type limitations, not the logical limitations of implementation.
 
 At this time, I am not ready to post the Source Code, as it is still in development.  I will at some point post it once the Falcon Mod Tool has been completed and released, and all the functions and classes have been thoroughly tested and verified to function correctly.
 
