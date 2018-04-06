@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using F4BMS.Database;
 using System.IO;
-
-
+using System.Diagnostics;
 
 namespace ConsoleApp1
 {
@@ -23,12 +22,15 @@ namespace ConsoleApp1
              * File under LODHeaders.  Database tests are passed an index  *
              * in the file to load in the second argument.                 *
              **************************************************************/
+            //WeaponDataFile wdf = new WeaponDataFile("E:\\FalconTest\\CT Database\\FALCON4.WCD");
+            //foreach (WeaponData w in wdf.Weapons)
+             //   System.Diagnostics.Debug.WriteLine(w.Name);
 
             /*
             F4BMS.LOD.LODFile lf = new F4BMS.LOD.LODFile("P:\\KOREAOBJ.LOD", "P:\\KOREAOBJ.HDR");
             List<F4BMS.LOD.LOD> LODs = new List<F4BMS.LOD.LOD>();
             LODs =  lf.FindLODType(F4BMS.LOD.NodeType.LightStringNode, true);            
-            */            
+            */
             //************************** LOD Tests ************************/                        
             // To Load the Entire LOD File uncomment this section
             // ********* NOTE: Remember to change the Location of the Files you are reading from. ********
@@ -189,18 +191,18 @@ namespace ConsoleApp1
                 ICTFile ctf;
                 // Load the Class Table Database
                 /*
-                fname = "p:\\FALCON4.CT";
+                fname = "E:\\FalconTest\\CT Database\\FALCON4.WCD";
                 // Individual Entry
-                F4BMS.Database.ClassTable ct = new F4BMS.Database.ClassTable(fname);
-                Console.Write(ct.Entries[17].Print());
+                //F4BMS.Database.ClassTable ct = new F4BMS.Database.ClassTable(fname);
+                //Console.Write(ct.Entries[17].Print());
                 // Full File
-                ctf = new ClassTable(fname);
+                ctf = new WeaponDataFile(fname);
                 // XML Export      
                 ctf.ToXML(fname + ".XML");
                 */
 
                 /*
-                fname = "p:\\FALCON4.ACD";
+                fname = "E:\\FalconTest\\CT Database\\FALCON4.ACD";
                 // Individual Entry
                 F4BMS.Database.AircraftData ad = new F4BMS.Database.AircraftData(fname, 8);
                 Console.Write(ad.Print());
@@ -209,10 +211,12 @@ namespace ConsoleApp1
                 // XML Export      
                 ctf.ToXML(fname + ".XML");
                 Console.Write(ctf.GetData()[3].Print());
-                */
+                ctf.Save();
+                ctf = null;
+                ctf = new AircraftDataFile(fname);
 
-                /*
-                fname = "p:\\FALCON4.VCD";
+                
+                fname = "E:\\FalconTest\\CT Database\\FALCON4.VCD";
                 // Individual Entry
                 F4BMS.Database.VehicleData vd = new F4BMS.Database.VehicleData(fname, 8);
                 Console.Write(vd.Print());
@@ -220,8 +224,12 @@ namespace ConsoleApp1
                 ctf = new VehicleDataFile(fname);
                 // XML Export      
                 ctf.ToXML(fname + ".XML");
+                ctf.Save();
+                ctf = null;
+                ctf = new VehicleDataFile(fname);
+                
+                ;
                 */
-
                 /*
                 fname = "p:\\FALCON4.UCD";
                 // Individual Entry
@@ -399,6 +407,7 @@ namespace ConsoleApp1
                 */
             }
             /************************ Key File Tests **********************/
+            /*****************THIS IS NOT FULLY IMPLEMENTED****************/
             {
                 /*
                 F4BMS.KEYFILE.KeyFile keyfile = new F4BMS.KEYFILE.KeyFile("P:\\BMS - Full.key");
